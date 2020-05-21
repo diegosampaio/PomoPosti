@@ -106,7 +106,7 @@
 <div class="modal fade" id="mldFinish" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form action="{{ route('tarefas.finish') }}" method="post">
-            @csrf
+            {{ csrf_field() }}
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Finalizar Tarefa</h5>
@@ -134,7 +134,7 @@
 <div class="modal fade" id="mldComentario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form action="{{ route('tarefas.storeComments') }}" method="post">
-            @csrf
+            {{ csrf_field() }}
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Registrar Comentário</h5>
@@ -162,7 +162,7 @@
 <div class="modal fade" id="delReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form action="{{ route('tarefas.lixeira') }}" method="post">
-            @csrf
+            {{ csrf_field() }}
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Deletar Tarefa</h5>

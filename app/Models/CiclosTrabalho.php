@@ -11,6 +11,7 @@ class CiclosTrabalho extends Model
     public function getWorkDay(int $idUser, $data)
     {
         return $this->join('tarefas', 'tarefas.id', 'ciclos_trabalhos.tarefas_id')
+            ->where('tarefas.users_id', $idUser)
             ->whereBetween('ciclos_trabalhos.dataInicio', [$data." 00:00:00", $data." 23:59:59"])
             ->orderBy('ciclos_trabalhos.created_at', 'asc')
             ->get();
