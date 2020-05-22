@@ -173,7 +173,7 @@ class TarefasController extends Controller
             return "<tr><td colspan=\"4\">Ops! Tarefa não encontrada!</td></tr>";
         }
 
-        if ($request->comentatio){
+        if ($request->comentario){
             $dadosCom = [
                 'tarefas_id' => $tarefa->id,
                 'comentarios' => $request->comentario
@@ -181,7 +181,7 @@ class TarefasController extends Controller
             $respCom = $this->comentario->create($dadosCom);
         }
 
-        $response = $tarefa->update(['dataFinalizacao' => date('Y-m-d'), 'statusTarefa' => 3]);
+        $response = $tarefa->update(['dataFinalizacao' => date('Y-m-d H:i:s'), 'statusTarefa' => 3]);
         if($response) {
             return redirect()
                 ->route('home')
