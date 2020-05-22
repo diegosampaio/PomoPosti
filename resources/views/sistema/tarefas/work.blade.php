@@ -294,7 +294,7 @@ function tempo() {
         if (s < 10) document.getElementById("segundo").innerHTML = "0" + s; else document.getElementById("segundo").innerHTML = s;
         if (m < 10) document.getElementById("minuto").innerHTML = "0" + m; else document.getElementById("minuto").innerHTML = m;
 
-        if (m == 1 && s == 0) {
+        if (m == 25 && s == 0) {
             var audio = new Audio('{{ asset("sound/alarme.mp3") }}');
             audio.addEventListener('canplaythrough', function() {
                 audio.play();
