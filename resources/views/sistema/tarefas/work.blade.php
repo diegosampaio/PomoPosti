@@ -185,6 +185,28 @@
         </form>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="mdlAviso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Hora do Descanço</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <b>Atenção!</b> Tire um tempo para recuperar as energias, lembre-se de que dos ciclos de trabalho de
+                1 à 3 pomodoris você deve ter 5 minutos de intervalo, acima de 4 pomodoris seu intervalo deve ser de
+                15 à 30 minutos.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
 
@@ -271,6 +293,15 @@ function tempo() {
         if (h < 10) document.getElementById("hora").innerHTML = "0" + h; else document.getElementById("hora").innerHTML = h ;
         if (s < 10) document.getElementById("segundo").innerHTML = "0" + s; else document.getElementById("segundo").innerHTML = s;
         if (m < 10) document.getElementById("minuto").innerHTML = "0" + m; else document.getElementById("minuto").innerHTML = m;
+
+        if (m == '25') {
+            var audio = new Audio('{{ asset("sound/alarme.mp3") }}');
+            audio.addEventListener('canplaythrough', function() {
+                audio.play();
+            });
+            $('#mdlAviso').modal('show');
+        }
+
         s++;
     },1000);
 }
