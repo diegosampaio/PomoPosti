@@ -11,7 +11,7 @@
                                 Categorias
                             </div>
                             <div class="col-md-2 text-right">
-                                <a href="" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">+</a>
+                                <a href="" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#cadCategoria">+</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cadCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <form action="{{ route('categorias.store') }}" method="post">
                 @csrf

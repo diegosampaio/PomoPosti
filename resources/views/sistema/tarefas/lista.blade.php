@@ -17,18 +17,20 @@
 
                     <div class="card-body">
                         @include('layouts.alerts')
-
                         <table class="table table-striped table-hover table-sm">
                             <thead>
                             <tr>
+                                <th></th>
                                 <th>Tarefa</th>
                                 <th>Data</th>
                                 <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @php($i = 1)
                             @forelse($lista as $tar)
                                 <tr>
+                                    <td>{{ $i++ }}</td>
                                     <td>
                                         <a href="{{ route('tarefas.play', $tar->id) }}">{{ $tar->tituloTarefa }}</a>
                                     </td>
@@ -59,7 +61,7 @@
                             </tbody>
                         </table>
 
-
+                        <a href="{{ route('tarefas') }}" class="btn btn-secondary btn-sm">Voltar</a>
                     </div>
                 </div>
             </div>

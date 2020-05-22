@@ -47,7 +47,7 @@ class Tarefa extends Model
     public function getTotalTarefaDiaStatus(int $idUser, $data, int $status = null)
     {
         $lista = $this->where('users_id', $idUser)
-            ->where('statusTarefa', '<', 3)
+            ->where('statusTarefa', '<=', 3)
             ->where('dataTarefa', $data);
 
         if ($status) {
