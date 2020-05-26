@@ -255,4 +255,13 @@ class TarefasController extends Controller
         }
     }
 
+    public function checklist()
+    {
+        $idUser = auth()->user()->id;
+        $dataAtual = date('Y-m-d');
+        $tarefasDia = $this->tarefa->getTarefas($idUser, $dataAtual);
+
+        return response()->json($tarefasDia);
+    }
+
 }

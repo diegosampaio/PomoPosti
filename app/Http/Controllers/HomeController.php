@@ -67,4 +67,12 @@ class HomeController extends Controller
 
         return view('sistema.home.index', compact('tarefasDia', 'ciclos'));
     }
+
+
+    public function index2()
+    {
+        return view('sistema.home.index2');
+    }
+
+
 }

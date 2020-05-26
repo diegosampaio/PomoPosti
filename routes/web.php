@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home2', 'HomeController@index2')->name('home2');
     // categorias
     Route::get('/categorias', 'CategoriasController@index')->name('categorias');
     Route::post('/categorias/store', 'CategoriasController@store')->name('categorias.store');
@@ -31,6 +32,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/tarefas/storeComments', 'TarefasController@storeComments')->name('tarefas.storeComments');
     Route::post('/tarefas/finish', 'TarefasController@finish')->name('tarefas.finish');
     Route::post('/tarefas/lixeira', 'TarefasController@lixeira')->name('tarefas.lixeira');
+
+    Route::get('/tarefas/checklist', 'TarefasController@checklist')->name('tarefas.checklist');
 
     // tarefas por data
     Route::get('/tarefas/{date}/list', 'TarefasController@listData')->name('tarefas.lista');

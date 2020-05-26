@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="shortcut icon" type="image/jpg" href="{{ asset('img/favicon.png') }}" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md bgPomo shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('img/logo-pomotask.png') }}" alt="Pomotask" class="logo" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -139,6 +139,7 @@
     <script src="https://kit.fontawesome.com/fdcaed1569.js" crossorigin="anonymous"></script>
 
     @yield('js')
+
 
 </body>
 </html>
