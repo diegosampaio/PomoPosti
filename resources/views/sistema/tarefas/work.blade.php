@@ -15,7 +15,7 @@
                         @else
                             <div class="text-center">
                                 <h1 class="text-success"><i class="fas fa-check"></i></h1>
-                                <h2>Finalizada em <span>{{ $tarefa->dataFinalizacao }}</span></h2>
+                                <h2>Finalizada em <span>{{ date('d/m/Y H:i:s', strtotime($tarefa->dataFinalizacao)) }}</span></h2>
                             </div>
                         @endif
                     </div>
@@ -283,16 +283,25 @@ function getCiclos(){
 var intervalo;
 
 function tempo() {
-
+    var timer;
+    var tH;
+    var tM;
+    var tS;
     var s = 1;
     var m = 0;
     var h = 0;
     intervalo = window.setInterval(function() {
         if (s == 60) { m++; s = 0; }
         if (m == 60) { h++; s = 0; m = 0; }
-        if (h < 10) document.getElementById("hora").innerHTML = "0" + h; else document.getElementById("hora").innerHTML = h ;
-        if (s < 10) document.getElementById("segundo").innerHTML = "0" + s; else document.getElementById("segundo").innerHTML = s;
-        if (m < 10) document.getElementById("minuto").innerHTML = "0" + m; else document.getElementById("minuto").innerHTML = m;
+        // if (h < 10) document.getElementById("hora").innerHTML = "0" + h; else document.getElementById("hora").innerHTML = h ;
+        // if (s < 10) document.getElementById("segundo").innerHTML = "0" + s; else document.getElementById("segundo").innerHTML = s;
+        // if (m < 10) document.getElementById("minuto").innerHTML = "0" + m; else document.getElementById("minuto").innerHTML = m;
+        if (h < 10) tH = "0" + h; else tH = h ;
+        if (s < 10) tS = "0" + s; else tS = s;
+        if (m < 10) tM = "0" + m; else tM = m;
+        timer = tH + ":" + tM + ":" + tS;
+        document.getElementById("timer").innerHTML = timer;
+        document.title = timer + ' | POMOtask';
 
         if (m == 25 && s == 0) {
             var audio = new Audio('{{ asset("sound/alarme.mp3") }}');
