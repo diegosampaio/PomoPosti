@@ -32,6 +32,22 @@
                     <div class="card-body">
                         <b>O que você deve fazer:</b> <br />
                         {{ $tarefa->tituloTarefa }}
+
+
+                        @if($tarefa->prazo)
+                            <br /><br />
+                            Você tem até o dia <b>{{ date('d/m/Y', strtotime($tarefa->prazo)) }}</b> para resolver isso!
+                        @endif
+
+                        @if($tarefa->categorias_id)
+                            <br /><br />
+                            <span class="badge badge-info">
+                                <i class="fas fa-tag"></i>
+                                {{ $tarefa->categoria->tituloCategoria }}
+                            </span>
+
+                        @endif
+
                         @if($tarefa->observacoes)
                             <hr />
                             <b>Observações:</b> <br />

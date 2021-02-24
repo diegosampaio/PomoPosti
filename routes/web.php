@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/home2', 'HomeController@index2')->name('home2');
     // categorias
     Route::get('/categorias', 'CategoriasController@index')->name('categorias');
+    Route::post('/slcCategorias', 'CategoriasController@selectCategorias')->name('slc.categorias');
     Route::post('/categorias/store', 'CategoriasController@store')->name('categorias.store');
     // tarefas
     Route::get('/tarefas', 'TarefasController@index')->name('tarefas');

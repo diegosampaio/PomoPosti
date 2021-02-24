@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarefa extends Model
 {
-    protected $fillable = ['users_id', 'tituloTarefa', 'observacoes', 'dataTarefa', 'dataFinalizacao', 'statusTarefa'];
+    protected $fillable = ['users_id', 'categorias_id', 'tituloTarefa', 'observacoes', 'dataTarefa', 'prazo', 'dataFinalizacao', 'statusTarefa'];
+
+
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class, 'categorias_id');
+    }
 
     /**
      * Lista tarefas por agrupamento de datas

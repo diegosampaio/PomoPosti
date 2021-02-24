@@ -105,15 +105,27 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="tituloTarefa">Título da Tarefa</label>
                                     <input type="text" name="tituloTarefa" id="tituloTarefa" placeholder="O que você irá fazer?" class="form-control" required />
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <label for="dataTarefa">Data</label>
-                                <input type="date" name="dataTarefa" id="dataTarefa" class="form-control" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">Categoria</label>
+                                <select name="categorias_id" id="categorias_id" class="form-control">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="dataTarefa">Data de inicio</label>
+                                <input type="date" name="dataTarefa" id="dataTarefa" value="{{ date('Y-m-d') }}" class="form-control" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="prazo">Data de término</label>
+                                <input type="date" name="prazo" id="prazo" value="{{ date('Y-m-d') }}" class="form-control" required>
                             </div>
                         </div>
                         <div class="row">
@@ -137,6 +149,27 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/fdcaed1569.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: "{{ route('slc.categorias') }}",
+                beforeSend: function(){
+                    $('#categorias_id').html('<option>Carregando categorias...</option>');
+                },
+                success: function(response){
+                    $('#categorias_id').html(response);
+                },
+                error: function(){
+                    $('#categorias_id').html('<option>Ops! Houve um erro, atualize a página e tente novamente</option>');
+                }
+            });
+        });
+    </script>
 
     @yield('js')
 
