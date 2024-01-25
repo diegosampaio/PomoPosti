@@ -17,4 +17,4 @@ jobs:
         server: ${{ secrets.ftp_host_taigo }}
         username: ${{ secrets.ftp_user_taigo }}
         password: ${{ secrets.ftp_password_taigo }}
-        server-dir: /public_html/projetos/posti
+        server-dir: /public_html/projetos/posti/
